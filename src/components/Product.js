@@ -65,11 +65,6 @@ const Product = ({ product }) => {
             <td id="name">{product.name}</td>
             <td id="price">{product.price}</td>
             <td id="currency">{product.currency}</td>
-            {/* <td id="actions">
-                {permissions.update && <UpdateButton product={product} />}
-                {permissions.delete && <DeleteButton product={product} />}
-                {noActions && 'no available actions'}
-            </td> */}
             {noActions ? (
                 <td id="no-avail-actions">no available actions</td>
             ) : (
@@ -81,18 +76,6 @@ const Product = ({ product }) => {
             )}
         </tr>
     );
-
-    // return (
-    //     <div className="product">
-    //         <ul>
-    //             <li>{product.name}</li>
-    //             <li>{product.price}</li>
-    //             <li>{product.currency}</li>
-    //         </ul>
-    //         {permissions.update && <UpdateButton product={product} />}
-    //         {permissions.delete && <DeleteButton product={product} />}
-    //     </div>
-    // );
 };
 
 export default Product;
