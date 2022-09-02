@@ -1,0 +1,173 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  background: #eee;
+}
+.container:before {
+  content: "";
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.container .spinner-frame {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 5px solid #fff;
+  padding: 10px;
+}
+
+.container .spinner-frame .spinner-cover {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+.container .spinner-frame .spinner-bar {
+  background: #29d;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 100% 0 0 0;
+  animation: spin 2s linear infinite;
+  transform-origin: 100% 100%;
+}
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+      background: #29d;
+  }
+  50% {
+      transform: rotate(180deg);
+      background: #00427c;
+  }
+  100% {
+      transform: rotate(360deg);
+      background: #29d;
+  }
+}
+
+.products {
+  margin: 5px;
+}
+
+.products h2 {
+  text-align: center;
+}
+
+.no-avail-products {
+  text-align: center;
+}
+
+#create {
+  text-align: center;
+  margin: 5px;
+}
+
+.create--input {
+  margin: 5px;
+}
+
+.button--create {
+  margin: 5px;
+}
+
+.no-read-perm {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+}
+
+table {
+  border-collapse: collapse;
+  border-radius: 12px;
+  border-style: hidden; 
+  box-shadow: 0 0 0 2px black; 
+  width: 90%;
+  margin: auto;
+}
+
+thead {
+  border-bottom: 1px solid black;
+}
+
+th {
+  width: 25%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+tr {
+  border-bottom: 1px dashed black;
+}
+
+td {
+  text-align: center;
+  padding: 5px 0px;
+}
+
+.button {
+  display: inline;
+  margin: 5px;
+}
+
+button {
+  margin-top: 5px;
+}
+
+@media only screen and (max-width: 720px) {
+  .create--input {
+    display: block;
+    margin: 5px auto;
+  }
+
+  table {
+    box-shadow: 0 0 0 0 black; 
+  }
+  thead {
+    display: none;
+  }
+
+  tr {
+    display: block;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    margin: 0.8rem;
+    border: 1px solid grey;
+    border-radius: 12px;
+    box-shadow: 0 0 5px;
+  }
+
+  td {
+    display: block;
+  }
+
+  td#name::before {
+    content: 'Name: ';
+  }
+
+  td#price::before {
+    content: 'Price: ';
+  }
+
+  td#currency::before {
+    content: 'Currency: ';
+  }
+
+  td#no-avail-actions {
+    display: none;
+  }
+}

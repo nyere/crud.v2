@@ -1,8 +1,23 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import createSagaMiddleware from '@redux-saga/core';
+import rootSaga from '../redux/sagas/rootSaga';
+import productsReducer from '../redux/slices/productsSlice';
+import permissionsSlice from '../redux/slices/permissionsSlice';
+
+const saga = createSagaMiddleware();
 
 export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
+    reducer: {
+        products: productsReducer,
+        permissions: permissionsSlice,
+    },
+
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({ thunk: false }).concat(saga),
+    // middleware: (getDefaultMiddleware) => [
+    //     ...getDefaultMiddleware({ thunk: false }),
+    //     saga,
+    // ],
 });
+
+saga.run(rootSaga);
